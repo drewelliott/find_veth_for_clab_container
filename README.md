@@ -13,7 +13,7 @@ docker ps
 ```
 
 ```
-clab inspect -t <topology file>
+sudo clab inspect -t <topology file>
 ```
 
 Next, we need to find the link number:
