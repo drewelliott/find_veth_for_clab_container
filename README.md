@@ -63,7 +63,7 @@ If you need to shut down one of the veth interfaces, you can follow these steps:
 
 Find the container pid:
 ```
-docker inspect --format '{{.State.PID}}' <container id>
+docker inspect --format '{{.State.Pid}}' <container id>
 ```
 
 Identify the interface:
