@@ -8,13 +8,19 @@ There are two types of veth to consider.
 
 In both cases, you will need to know the container id - you can get this either using docker or clab:
 
-`docker ps`
+```
+docker ps
+```
 
-`clab inspect -t <topology file>`
+```
+clab inspect -t <topology file>
+```
 
 Next, we need to find the link number:
 
-`docker exec -it <container id> ip link`
+```
+docker exec -it <container id> ip link
+```
 
 ```
 ╭─drelliot@snoopy ~ 
@@ -49,15 +55,23 @@ In the example, I have an SR Linux container with two point-to-point links and t
 
 The management link is tied to the management bridge, so that is very straightforward to identify.
 
-`awk '{print FILENAME,$0}' /sys/class/net/veth*/ifindex`
+```
+awk '{print FILENAME,$0}' /sys/class/net/veth*/ifindex
+```
 
 If you need to shut down one of the veth interfaces, you can follow these steps:
 
 Find the container pid:
-`docker inspect --format '{{.State.PID}}' <container id>`
+```
+docker inspect --format '{{.State.PID}}' <container id>
+```
 
 Identify the interface:
-`nsenter -t <container pid> -n ip link`
+```
+nsenter -t <container pid> -n ip link
+```
 
 Modify the interface:
-`nsenter -t <container pid> -n ip link set e1-1 down`
+```
+nsenter -t <container pid> -n ip link set e1-1 down
+```
