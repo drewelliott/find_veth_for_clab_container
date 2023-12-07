@@ -45,7 +45,7 @@ Next, we need to find the link number:
 580: e1-2@if581: <BROADCAST,MULTICAST> mtu 9232 qdisc noqueue state DOWN mode DEFAULT group default 
     link/ether 1a:22:01:ff:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid 2
 ```
-In the example, I have two an SR Linux container with two point-to-point links and the management link. 
+In the example, I have an SR Linux container with two point-to-point links and the management link. 
 
 The management link is tied to the management bridge, so that is very straightforward to identify.
 
